@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-    <div class="container">
+    <div class="_container">
+      <!-- swiper -->
       <el-carousel height="430px">
         <el-carousel-item>
           <a class="a-el-carousel" href="" style="background: url('static/images/index-banner-3.jpg') no-repeat center">
@@ -39,6 +40,156 @@
           </a>
         </el-carousel-item>
       </el-carousel>
+      <!-- publicity-warp -->
+      <div class="publicity-wrap">
+        <div class="container">
+          <el-row>
+            <el-col :span="6">
+              <div class="publicity-item">
+                <div class="title">封装APP</div>
+                <div class="blue-line">——</div>
+                <p>自助式操作，功能齐全，<br>1分钟，网站快速变成APP</p>
+              </div>
+            </el-col>
+            <el-col :span="6">
+              <div class="publicity-item">
+                <div class="title">封装APP</div>
+                <div class="blue-line">——</div>
+                <p>自助式操作，功能齐全，<br>1分钟，网站快速变成APP</p>
+              </div>
+            </el-col>
+            <el-col :span="6">
+              <div class="publicity-item">
+                <div class="title">封装APP</div>
+                <div class="blue-line">——</div>
+                <p>自助式操作，功能齐全，<br>1分钟，网站快速变成APP</p>
+              </div>
+            </el-col>
+            <el-col :span="6">
+              <div class="publicity-item">
+                <div class="title">封装APP</div>
+                <div class="blue-line">——</div>
+                <p>自助式操作，功能齐全，<br>1分钟，网站快速变成APP</p>
+              </div>
+            </el-col>
+          </el-row>
+        </div>
+      </div>
+      <!-- certificate-signing -->
+      <div class="container">
+        <div class="certificate-signing index-common">
+          <h1>iOS企业证书签名</h1>
+          <h4>无需上架，免越狱安装，不限制iOS设备，无限制安装</h4>
+          <el-row>
+            <el-col :span="8">
+              <div class="certificate-signing-item">
+                <img src="static/images//icon-1.jpg" class="img-responsive" alt="">
+                <div class="title">自动化签名，快速高效</div>
+                <div class="blue-line">——</div>
+                <p>根据自身需要，购买套餐，<br>
+                  上传所需签名的APP包，10分钟即可测试&amp;取包</p>
+              </div>
+            </el-col>
+            <el-col :span="8">
+              <div class="certificate-signing-item">
+                  <img src="static/images//icon-2.jpg" class="img-responsive" alt="">
+                <div class="title">官方企业证书</div>
+                <div class="blue-line">——</div>
+                <p>专业技术开发团队，拥有国内外<br>
+                  官方企业签证书，分类签名，保证<br>
+                  APP的长久稳定</p>
+              </div>
+            </el-col>
+            <el-col :span="8">
+              <div class="certificate-signing-item">
+                  <img src="static/images//icon-3.jpg" class="img-responsive" alt="">
+                <div class="title">独立专享证书服务</div>
+                <div class="blue-line">——</div>
+                <p>单张企业证书只签名一个APP<br>
+                  专享使用，同时另外提供备用证书，<br>
+                  双重保证</p>
+              </div>
+            </el-col>
+          </el-row>
+        </div>
+      </div>
+      <!-- encapsulation-app -->
+      <div class="encapsulation-app-warp">
+        <div class="container">
+          <div class="encapsulation-app index-common">
+            <h1>网站封装APP</h1>
+            <h4>只要一个网站地址，1分钟做好安卓和iOS APP ，提供免费测试链接</h4>
+            <img src="static/images/img-1.png" alt="">
+          </div>
+        </div>
+      </div>
+      <!-- closed-beta-distribution -->
+      <div class="container">
+        <div class="closed-beta-distribution index-common">
+          <h1>内测分发</h1>
+          <h4>上传APP包后，提供短链接和下载二维码，方便用户推广下载 </h4>
+          <el-row>
+            <el-col :span="6">
+              <div class="closed-beta-distribution-item">
+                <div class="con">
+                  <div class="top"></div>
+                  <div class="content">
+                    <img src="static/images//icon-4.png" class="img-responsive" alt="">
+                    <h4>每天免费1000次</h4>
+                    <p>
+                      每个实名认证的用户，<br>
+                      每天免费1000次
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </el-col>
+            <el-col :span="6">
+              <div class="closed-beta-distribution-item">
+                <div class="con">
+                  <div class="top"></div>
+                  <div class="content">
+                    <img src="static/images//icon-5.png" class="img-responsive" alt="">
+                    <h4>自动识别安卓和苹果</h4>
+                    <p>
+                      支持安卓和苹果合并应用<br>一码二用
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </el-col>
+            <el-col :span="6">
+              <div class="closed-beta-distribution-item">
+                <div class="con">
+                  <div class="top"></div>
+                  <div class="content">
+                    <img src="static/images//icon-6.png" class="img-responsive" alt="">
+                    <h4>一包多传</h4>
+                    <p>
+                      单个APP最大支持1.5G<br>高速CDN下载
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </el-col>
+            <el-col :span="6">
+              <div class="closed-beta-distribution-item">
+                <div class="con">
+                  <div class="top"></div>
+                  <div class="content">
+                    <img src="static/images//icon-7.png" class="img-responsive" alt="">
+                    <h4>精美的下载模板</h4>
+                    <p>
+                      提供多套不同主题的下载模板<br>
+                      提高用户下载转化率
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </el-col>
+          </el-row>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -56,9 +207,126 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
   .home {
-    .container {
+    ._container {
       max-width: 1920px;
       margin: auto;
+    }
+    .publicity-wrap {
+      background-color: #f5f9fe;
+      .publicity-item {
+        padding: 35px 20px 30px;
+        border-left: 1px solid #eee;
+        .title {
+          font-size: 18px;
+          color: #333;
+        }
+        .blue-line {
+          color: #157df1;
+        }
+        p {
+          font-size: 14px;
+          line-height: 24px;
+          color: #848484;
+        }
+        &:hover {
+          background: #fff;
+          .title {
+            color: #157df1;
+          }
+        }
+      }
+    }
+    .index-common {
+      text-align: center;
+      padding: 90px 0;
+      h1 {
+        color: #348dee;
+      }
+      h4 {
+        font-size: 17px;
+        margin-top: 25px;
+      }
+    }
+    .certificate-signing {
+      h4 {
+        margin-bottom: 70px;
+      }
+      .certificate-signing-item {
+        .title {
+          font-size: 18px;
+          color: #333;
+        }
+        .blue-line {
+          color: #157df1;
+        }
+        p {
+          font-size: 14px;
+          line-height: 24px;
+          color: #848484;
+        }
+      }
+    }
+    .encapsulation-app-warp {
+      background: url('/static/images/bg-1.jpg') no-repeat center;
+      height: 875px;
+      h1, h4 {
+        color: #fff;
+      }
+      img {
+        margin: 70px auto 0;
+        max-width: 100%;
+      }
+    }
+    .closed-beta-distribution {
+      .closed-beta-distribution-item {
+        border-top: none;
+        padding: 0 20px;
+        .con {
+          border: 1px solid #eee;
+          .top {
+            height: 6px;
+            margin-left: -1px;
+          }
+          .content {
+            padding: 40px 0;
+            img {
+              height: 81;
+              margin: auto;
+            }
+            h4 {
+              margin-top: 30px;
+            }
+            p {
+              margin-top: 25px;
+              color: #666;
+              font-size: 14px;
+            }
+          }
+          &:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,.1);
+          }
+        }
+        &:nth-of-type(1) {
+          .top {
+            background: linear-gradient(to right, #5caafd , #57d4f8);
+          }
+        }
+        &:nth-of-type(2) {
+          .top {
+            background: linear-gradient(to right, #507dfb , #5598fa);
+          }
+        }
+        &:nth-of-type(3) {
+          .top {
+            background: linear-gradient(to right, #4483dd , #649efc);
+          }
+        }
+        &:nth-of-type(3) {
+          .top {
+            background: linear-gradient(to right, #5958d9 , #8e1fe5);
+          }
+        }
+      }
     }
   }
   .a-el-carousel {
