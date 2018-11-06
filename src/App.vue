@@ -6,7 +6,7 @@
           <img src="static/images/logo-top.png" alt="">
           <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" active-text-color="#157df1">
             <el-menu-item index="home">首页</el-menu-item>
-            <el-menu-item index="release">发布</el-menu-item>
+            <el-menu-item index="publish">发布</el-menu-item>
             <el-menu-item index="price">价格</el-menu-item>
           </el-menu>
         </div>
