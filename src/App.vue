@@ -82,12 +82,16 @@ export default {
         name: index
       })
     }
+  },
+  mounted () {
+    // console.log(this.$route, 'route')
+    this.activeIndex = this.$route.name
   }
 }
 </script>
 
 <style>
-  html, body, p {
+  html, body, p, h1, dl, dd {
     margin: 0;
     padding: 0;
   }
