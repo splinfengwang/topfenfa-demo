@@ -1,31 +1,21 @@
 <template>
     <div class="login-common">
-        <div class="tit">账号登录</div>
+        <div class="tit">找回密码</div>
         <el-form :model="ruleForm" :rules="rules" ref="ruleForm" class="demo-ruleForm">
             <el-form-item prop="name">
-                <el-input v-model="ruleForm.name" placeholder="请输入手机号">
-                  <i slot="prefix" class="tff tff-phone"></i>
-                </el-input>
-            </el-form-item>
-            <el-form-item prop="name">
-                <el-input v-model="ruleForm.name" placeholder="请输入密码">
-                  <i slot="prefix" class="tff tff-password"></i>
+                <el-input v-model="ruleForm.name" placeholder="请输入您的注册邮箱">
+                  <i slot="prefix" class="tff tff-email"></i>
                 </el-input>
             </el-form-item>
         </el-form>
-        <el-checkbox v-model="checked">记住我</el-checkbox>
         <div class="submit">
-          <el-button type="primary">登录</el-button>
-        </div>
-        <div class="operations">
-          <span @click="toRegister">免费注册</span>
-          <span @click="toRestpsd">忘记密码</span>
+          <el-button type="primary">发送邮件</el-button>
         </div>
     </div>
 </template>
 <script>
 export default {
-  name: 'login',
+  name: 'restpsd',
   data () {
     return {
       ruleForm: {
@@ -45,11 +35,6 @@ export default {
     toRegister () {
       this.$router.push({
         name: 'register'
-      })
-    },
-    toRestpsd () {
-      this.$router.push({
-        name: 'restpsd'
       })
     }
   }

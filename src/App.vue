@@ -11,8 +11,8 @@
           </el-menu>
         </div>
         <div class="right">
-          <el-button size="small">登 录</el-button>
-          <el-button type="primary" size="small">注 册</el-button>
+          <el-button size="small" @click="toLogin">登 录</el-button>
+          <el-button type="primary" size="small" @click="toRegister">注 册</el-button>
         </div>
       </div>
     </div>
@@ -80,6 +80,16 @@ export default {
       console.log(index)
       this.$router.push({
         name: index
+      })
+    },
+    toLogin () {
+      this.$router.push({
+        name: 'login'
+      })
+    },
+    toRegister () {
+      this.$router.push({
+        name: 'register'
       })
     }
   },

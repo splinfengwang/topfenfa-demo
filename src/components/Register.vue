@@ -1,11 +1,24 @@
 <template>
     <div class="login-common">
-        <div class="tit">账号登录</div>
+        <div class="tit">账号注册</div>
         <el-form :model="ruleForm" :rules="rules" ref="ruleForm" class="demo-ruleForm">
+            <el-form-item prop="name">
+                <el-input v-model="ruleForm.name" placeholder="请输入您的用户名">
+                  <i slot="prefix" class="tff tff-account"></i>
+                </el-input>
+            </el-form-item>
             <el-form-item prop="name">
                 <el-input v-model="ruleForm.name" placeholder="请输入手机号">
                   <i slot="prefix" class="tff tff-phone"></i>
                 </el-input>
+            </el-form-item>
+            <el-form-item prop="name">
+              <div style="display: flex;">
+                <el-input v-model="ruleForm.name" placeholder="请输入短信验证码">
+                  <i slot="prefix" class="tff tff-email"></i>
+                </el-input>
+                <el-button style="margin-left: 20px;" type="primary">获取验证码</el-button>
+              </div>
             </el-form-item>
             <el-form-item prop="name">
                 <el-input v-model="ruleForm.name" placeholder="请输入密码">
@@ -13,19 +26,17 @@
                 </el-input>
             </el-form-item>
         </el-form>
-        <el-checkbox v-model="checked">记住我</el-checkbox>
         <div class="submit">
-          <el-button type="primary">登录</el-button>
+          <el-button type="primary">注册</el-button>
         </div>
         <div class="operations">
-          <span @click="toRegister">免费注册</span>
-          <span @click="toRestpsd">忘记密码</span>
+          已有账号，<span @click="toLogin">点击登录</span>
         </div>
     </div>
 </template>
 <script>
 export default {
-  name: 'login',
+  name: 'register',
   data () {
     return {
       ruleForm: {
@@ -42,14 +53,9 @@ export default {
     }
   },
   methods: {
-    toRegister () {
+    toLogin () {
       this.$router.push({
-        name: 'register'
-      })
-    },
-    toRestpsd () {
-      this.$router.push({
-        name: 'restpsd'
+        name: 'login'
       })
     }
   }
@@ -80,12 +86,12 @@ export default {
       }
     }
     .operations {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 20px;
+      text-align: center;
       font-size: 14px;
       color: #666666;
+      margin-top: 20px;
       span {
+        color: #58b7ff;
         cursor: pointer;
       }
     }
