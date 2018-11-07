@@ -8,6 +8,7 @@ import Restpsd from '@/components/Restpsd'
 import Publish from '@/components/publish/Index'
 import Upload from '@/components/publish/Upload'
 import Applist from '@/components/publish/Applist'
+import Success from '@/components/publish/Success'
 
 Vue.use(Router)
 
@@ -52,6 +53,11 @@ export default new Router({
           path: 'applist',
           name: 'applist',
           component: Applist
+        },
+        {
+          path: 'success',
+          name: 'success',
+          component: Success
         }
       ]
     }
