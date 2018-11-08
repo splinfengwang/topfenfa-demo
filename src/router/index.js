@@ -5,7 +5,11 @@ import Price from '@/components/Price'
 import Login from '@/components/Login'
 import Register from '@/components/Register'
 import Restpsd from '@/components/Restpsd'
-import Publish from '@/components/publish/Index'
+import Publishinfo from '@/components/publish/Publishinfo'
+import Myapp from '@/components/publish/Myapp'
+// import Appinfo from '@/components/publish/Appinfo'
+import Appsetting from '@/components/publish/Appsetting'
+import Publish from '@/components/publish/Publish'
 import Upload from '@/components/publish/Upload'
 import Applist from '@/components/publish/Applist'
 import Success from '@/components/publish/Success'
@@ -45,19 +49,44 @@ export default new Router({
       },
       children: [
         {
-          path: 'upload',
-          name: 'upload',
-          component: Upload
+          path: 'publishinfo',
+          name: 'publishinfo',
+          component: Publishinfo,
+          children: [
+            {
+              path: 'upload',
+              name: 'upload',
+              component: Upload
+            },
+            {
+              path: 'applist',
+              name: 'applist',
+              component: Applist
+            },
+            {
+              path: 'success',
+              name: 'success',
+              component: Success
+            }
+          ]
         },
         {
-          path: 'applist',
-          name: 'applist',
-          component: Applist
-        },
-        {
-          path: 'success',
-          name: 'success',
-          component: Success
+          path: 'myapp/:id',
+          name: 'myapp',
+          component: Myapp,
+          redirect: 'appsetting',
+          children: [
+            // {
+            //   path: 'appinfo',
+            //   name: 'appinfo',
+            //   component: Appinfo
+            // },
+            {
+              path: 'appsetting',
+              name: 'appsetting',
+              component: Appsetting
+            }
+          ]
         }
       ]
     }

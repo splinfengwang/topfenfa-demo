@@ -78,7 +78,7 @@
           width="220px">
           <template slot-scope="scope">
             <el-button size="mini" plain style="font-size: 12px;border-color: #157df1;color: #157df1;">预览</el-button>
-            <el-button size="mini" plain style="font-size: 12px;border-color: #157df1;color: #157df1;">管理</el-button>
+            <el-button size="mini" plain style="font-size: 12px;border-color: #157df1;color: #157df1;" @click="toMyapp">管理</el-button>
             <el-button size="mini" plain style="font-size: 12px;border-color: #ee635d;color: #ee635d;">删除</el-button>
           </template>
         </el-table-column>
@@ -123,6 +123,14 @@ export default {
   methods: {
     searchApp () {
       console.log(this.appName)
+    },
+    toMyapp () {
+      this.$router.push({
+        name: 'appsetting',
+        params: {
+          id: 123
+        }
+      })
     }
   }
 }

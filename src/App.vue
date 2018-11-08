@@ -94,7 +94,7 @@ export default {
     }
   },
   mounted () {
-    console.log(this.$route, 'route')
+    // console.log(this.$route, 'route')
     this.activeIndex = this.$route.matched[0].name
   }
 }
