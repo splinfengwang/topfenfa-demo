@@ -33,6 +33,7 @@
           </el-col>
           <el-col :span="8">
             <div class="con">
+              <i class="tff tff-recommend"></i>
               <div class="c-top">
                 <div class="num">10,000<span>次</span></div>
                 <p>累计下载次数</p>
@@ -213,6 +214,14 @@ export default {
           margin: 0 20px;
           border: 1px solid #eee;
           padding-bottom: 40px;
+          position: relative;
+          i {
+              position: absolute;
+              font-size: 84px;
+              right: -1px;
+              color: #f11c1c;
+              top: -4px;
+          }
           &:hover {
               box-shadow: 0 5px 10px rgba(21,125,241,.2);
           }

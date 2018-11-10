@@ -11,8 +11,17 @@
           </el-menu>
         </div>
         <div class="right">
-          <el-button size="small" @click="toLogin">登 录</el-button>
-          <el-button type="primary" size="small" @click="toRegister">注 册</el-button>
+          <el-button size="small" @click="toLogin" v-if="!isLogin">登 录</el-button>
+          <el-button type="primary" size="small" @click="toRegister" v-if="!isLogin">注 册</el-button>
+          <el-dropdown v-if="isLogin">
+            <span class="el-dropdown-link">
+              wanglinfeng<i class="el-icon-arrow-down el-icon--right"></i>
+            </span>
+            <el-dropdown-menu slot="dropdown" class="el-dropdown-content">
+              <el-dropdown-item>我的订单</el-dropdown-item>
+              <el-dropdown-item divided><i class="tff tff-logout"></i>退出</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
         </div>
       </div>
     </div>
@@ -72,7 +81,8 @@ export default {
   name: 'App',
   data () {
     return {
-      activeIndex: 'home'
+      activeIndex: 'home',
+      isLogin: true
     }
   },
   methods: {
@@ -126,6 +136,19 @@ export default {
   }
 </style>
 <style lang="scss" scoped>
+.el-dropdown-menu__item {
+  font-size: 14px;
+  line-height: 20px;
+}
+.el-dropdown-menu__item--divided {
+  line-height: 36px;
+  i {
+    margin-right: 5px;
+  }
+}
+</style>
+
+<style lang="scss" scoped>
 #app {
   .app-header {
     border-bottom: 1px solid #eee;
@@ -151,6 +174,13 @@ export default {
       }
       .right {
         padding-top: 15px;
+        .el-dropdown-link{
+            cursor: pointer;
+            color: #999999;
+            font-size: 14px;
+            height: 35px;
+            display: inline-block;
+        }
       }
     }
   }
