@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
-import Price from '@/components/Price'
+import Price from '@/components/price/Price'
+import Priceinfo from '@/components/price/Priceinfo'
+import Buy from '@/components/price/Buy'
 import Login from '@/components/Login'
 import Register from '@/components/Register'
 import Restpsd from '@/components/Restpsd'
@@ -25,7 +27,22 @@ export default new Router({
     }, {
       path: '/price',
       name: 'price',
-      component: Price
+      component: Price,
+      redirect: {
+        name: 'priceinfo'
+      },
+      children: [
+        {
+          path: 'priceinfo',
+          name: 'priceinfo',
+          component: Priceinfo
+        },
+        {
+          path: 'buy',
+          name: 'buy',
+          component: Buy
+        }
+      ]
     }, {
       path: '/login',
       name: 'login',
@@ -45,13 +62,16 @@ export default new Router({
       name: 'publish',
       component: Publish,
       redirect: {
-        name: 'upload'
+        name: 'publishinfo'
       },
       children: [
         {
           path: 'publishinfo',
           name: 'publishinfo',
           component: Publishinfo,
+          redirect: {
+            name: 'upload'
+          },
           children: [
             {
               path: 'upload',
@@ -74,7 +94,9 @@ export default new Router({
           path: 'myapp/:id',
           name: 'myapp',
           component: Myapp,
-          redirect: 'appsetting',
+          redirect: {
+            name: 'appsetting'
+          },
           children: [
             // {
             //   path: 'appinfo',

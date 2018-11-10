@@ -105,6 +105,9 @@ export default {
     margin: 0;
     padding: 0;
   }
+  body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC","Helvetica Neue",STHeiti,"Microsoft Yahei",Tahoma,Simsun,sans-serif;
+  }
   a {
     outline: none;
     text-decoration: none;
