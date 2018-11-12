@@ -56,7 +56,8 @@ export default {
     }
   },
   methods: {
-    selectMenu (index) {
+    selectMenu (index, indexPath) {
+      console.log(index, indexPath)
       this.$router.push({
         name: index
       })

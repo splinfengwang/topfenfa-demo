@@ -5,7 +5,7 @@
         <div class="left">
           <img src="static/images/logo-top.png" alt="">
           <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" active-text-color="#157df1">
-            <el-menu-item index="home">首页</el-menu-item>
+            <el-menu-item index="index">首页</el-menu-item>
             <el-menu-item index="publish">发布</el-menu-item>
             <el-menu-item index="price">价格</el-menu-item>
           </el-menu>
@@ -13,13 +13,13 @@
         <div class="right">
           <el-button size="small" @click="toLogin" v-if="!isLogin">登 录</el-button>
           <el-button type="primary" size="small" @click="toRegister" v-if="!isLogin">注 册</el-button>
-          <el-dropdown v-if="isLogin">
+          <el-dropdown v-if="isLogin" @command="handleCommand">
             <span class="el-dropdown-link">
               wanglinfeng<i class="el-icon-arrow-down el-icon--right"></i>
             </span>
             <el-dropdown-menu slot="dropdown" class="el-dropdown-content">
-              <el-dropdown-item>我的订单</el-dropdown-item>
-              <el-dropdown-item divided><i class="tff tff-logout"></i>退出</el-dropdown-item>
+              <el-dropdown-item command="myorder">我的订单</el-dropdown-item>
+              <el-dropdown-item divided command="logout"><i class="tff tff-logout"></i>退出</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
         </div>
@@ -81,7 +81,7 @@ export default {
   name: 'App',
   data () {
     return {
-      activeIndex: 'home',
+      activeIndex: 'index',
       isLogin: true
     }
   },
@@ -101,6 +101,18 @@ export default {
       this.$router.push({
         name: 'register'
       })
+    },
+    handleCommand (command) {
+      switch (command) {
+        case 'myorder':
+          this.$router.push({
+            name: 'myorder'
+          })
+          break
+        case 'logout':
+          // this.logout()
+          break
+      }
     }
   },
   mounted () {

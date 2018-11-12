@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/components/Home'
+import Home from '@/components/home/Home'
+import User from '@/components/home/User'
+import Myorder from '@/components/home/Myorder'
+import Index from '@/components/home/Index'
 import Price from '@/components/price/Price'
 import Priceinfo from '@/components/price/Priceinfo'
 import Buy from '@/components/price/Buy'
@@ -22,8 +25,33 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      name: 'index',
+      component: Index,
+      redirect: {
+        name: 'home'
+      },
+      children: [
+        {
+          path: 'home',
+          name: 'home',
+          component: Home
+        },
+        {
+          path: 'user',
+          name: 'user',
+          component: User,
+          redirect: {
+            name: 'myorder'
+          },
+          children: [
+            {
+              path: 'myorder',
+              name: 'myorder',
+              component: Myorder
+            }
+          ]
+        }
+      ]
     }, {
       path: '/price',
       name: 'price',
