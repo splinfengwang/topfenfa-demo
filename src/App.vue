@@ -11,11 +11,11 @@
           </el-menu>
         </div>
         <div class="right">
-          <el-button size="small" @click="toLogin" v-if="!isLogin">登 录</el-button>
-          <el-button type="primary" size="small" @click="toRegister" v-if="!isLogin">注 册</el-button>
-          <el-dropdown v-if="isLogin" @command="handleCommand">
+          <el-button size="small" @click="toLogin" v-if="!islogin">登 录</el-button>
+          <el-button type="primary" size="small" @click="toRegister" v-if="!islogin">注 册</el-button>
+          <el-dropdown v-if="islogin" @command="handleCommand">
             <span class="el-dropdown-link">
-              wanglinfeng<i class="el-icon-arrow-down el-icon--right"></i>
+              {{userinfo.name}}<i class="el-icon-arrow-down el-icon--right"></i>
             </span>
             <el-dropdown-menu slot="dropdown" class="el-dropdown-content">
               <el-dropdown-item command="myorder">我的订单</el-dropdown-item>
@@ -77,15 +77,19 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'App',
+  computed: {
+    ...mapGetters(['islogin', 'userinfo'])
+  },
   data () {
     return {
-      activeIndex: 'index',
-      isLogin: true
+      activeIndex: 'index'
     }
   },
   methods: {
+    ...mapActions(['loginout']),
     handleSelect (index) {
       console.log(index)
       this.$router.push({
@@ -110,7 +114,10 @@ export default {
           })
           break
         case 'logout':
-          // this.logout()
+          this.$store.dispatch('logout')
+            .then(() => {
+              this.toLogin()
+            })
           break
       }
     }

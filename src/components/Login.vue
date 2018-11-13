@@ -1,21 +1,21 @@
 <template>
     <div class="login-common">
         <div class="tit">账号登录</div>
-        <el-form :model="ruleForm" :rules="rules" ref="ruleForm" class="demo-ruleForm">
-            <el-form-item prop="name">
-                <el-input v-model="ruleForm.name" placeholder="请输入手机号">
+        <el-form :model="loginForm" :rules="rules" ref="loginForm" class="demo-loginForm">
+            <el-form-item prop="email">
+                <el-input v-model="loginForm.email" placeholder="请输入手机号">
                   <i slot="prefix" class="tff tff-phone"></i>
                 </el-input>
             </el-form-item>
-            <el-form-item prop="name">
-                <el-input v-model="ruleForm.name" placeholder="请输入密码">
+            <el-form-item prop="password">
+                <el-input v-model="loginForm.password" placeholder="请输入密码">
                   <i slot="prefix" class="tff tff-password"></i>
                 </el-input>
             </el-form-item>
         </el-form>
         <el-checkbox v-model="checked">记住我</el-checkbox>
         <div class="submit">
-          <el-button type="primary">登录</el-button>
+          <el-button type="primary" @click="handleSubmit">登录</el-button>
         </div>
         <div class="operations">
           <span @click="toRegister">免费注册</span>
@@ -24,24 +24,28 @@
     </div>
 </template>
 <script>
+import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'login',
+  computed: {
+    ...mapGetters([])
+  },
   data () {
     return {
-      ruleForm: {
-        name: ''
+      loginForm: {
+        email: '',
+        password: ''
       },
       rules: {
         // TODO: 字段校验
-        name: [
-          { required: true, message: '请输入活动名称', trigger: 'blur' },
-          { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
-        ]
+        email: { required: true, message: '请输入邮箱', trigger: 'blur' },
+        password: { required: true, message: '请输入密码', trigger: 'blur' }
       },
       checked: true
     }
   },
   methods: {
+    ...mapActions(['login']),
     toRegister () {
       this.$router.push({
         name: 'register'
@@ -51,6 +55,15 @@ export default {
       this.$router.push({
         name: 'restpsd'
       })
+    },
+    handleSubmit () {
+      console.log(this.$store)
+      this.$store.dispatch('login', this.loginForm)
+        .then(() => {
+          this.$router.push({
+            name: 'home'
+          })
+        })
     }
   }
 }
