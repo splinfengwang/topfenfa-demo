@@ -2,7 +2,7 @@ import axios from 'axios'
 import store from '@/store'
 // 创建axios实例
 const service = axios.create({
-  baseURL: 'http://result.eolinker.com/Ps2CuJ18b41b52825e8597dd5d533fa4b249d2ad7720cb1?uri=',
+  baseURL: 'http://result.eolinker.com/Ps2CuJ18b41b52825e8597dd5d533fa4b249d2ad7720cb1?uri=/api/',
   timeout: 15000 // 请求超时时间
 })
 

@@ -8,74 +8,24 @@
         </h1>
         <p class="p1">实名认证用户每天可以免费下载1000次，如超过免费次数，可以购买分发下载次数</p>
         <el-row>
-          <el-col :span="8">
+          <el-col :span="8" v-for="(item, index) in priceInfo" :key="index">
             <div class="con">
+              <i class="tff tff-recommend" v-if="item.is_recommend"></i>
               <div class="c-top">
-                <div class="num">1,000<span>次</span></div>
+                <div class="num">{{item.coupons}}<span>次</span></div>
                 <p>累计下载次数</p>
+                <p style="color: red">{ 赠送 {{item.gift}} 次 }</p>
               </div>
             <div class="bottom-con">
               <dl>
-              <dd><span class="tff tff-gou"></span>默认模板使用</dd>
-              <dd><span class="tff tff-gou"></span>APP可以保存90天
-                <el-tooltip class="item" effect="light" content="APP上传后，可以在第八区平台保存90天" placement="top">
-                  <span class="tff tff-prompt"></span>
-                </el-tooltip>
-              </dd>
-              <dd><span class="tff tff-gou"></span>下载次数不受时间限制</dd>
-              </dl>
-              <div class="b-price"><span>20</span>元</div>
-            </div>
-            <div class="bottom">
-              <el-button size="medium" type="primary" class="buy">购买</el-button>
-            </div>
-            </div>
-          </el-col>
-          <el-col :span="8">
-            <div class="con">
-              <i class="tff tff-recommend"></i>
-              <div class="c-top">
-                <div class="num">10,000<span>次</span></div>
-                <p>累计下载次数</p>
-              </div>
-            <div class="bottom-con">
-              <dl>
-                <dd><span class="tff tff-gou"></span>CDN加速下载</dd>
-                <dd><span class="tff tff-gou"></span>下载页无广告</dd>
-                <dd><span class="tff tff-gou"></span>下载次数不受时间限制</dd>
-                <dd><span class="tff tff-gou"></span>APP可以保存365天
-                  <el-tooltip class="item" effect="light" content="APP上传后，可以在第八区平台保存90天" placement="top">
+                <dd v-for="(desc_item, desc_index) in item.desc" :key="desc_index">
+                  <span class="tff tff-gou"></span>{{desc_item.text}}
+                  <el-tooltip class="item" effect="light" :content="desc_item.tips" placement="top" v-if="desc_item.tips !== ''">
                     <span class="tff tff-prompt"></span>
                   </el-tooltip>
                 </dd>
-                <dd><span class="tff tff-gou"></span>下载页专享模板</dd>
               </dl>
-              <div class="b-price"><span>180</span>元</div>
-            </div>
-            <div class="bottom">
-              <el-button size="medium" type="primary" class="buy">购买</el-button>
-            </div>
-            </div>
-          </el-col>
-          <el-col :span="8">
-            <div class="con">
-              <div class="c-top">
-                <div class="num">100,000<span>次</span></div>
-                <p>累计下载次数</p>
-              </div>
-            <div class="bottom-con">
-              <dl>
-                <dd><span class="tff tff-gou"></span>CDN加速下载</dd>
-                <dd><span class="tff tff-gou"></span>下载页无广告</dd>
-                <dd><span class="tff tff-gou"></span>下载次数不受时间限制</dd>
-                <dd><span class="tff tff-gou"></span>APP可以保存365天
-                  <el-tooltip class="item" effect="light" content="APP上传后，可以在第八区平台保存90天" placement="top">
-                    <span class="tff tff-prompt"></span>
-                  </el-tooltip>
-                </dd>
-                <dd><span class="tff tff-gou"></span>下载页专享模板</dd>
-              </dl>
-              <div class="b-price"><span>1600</span>元</div>
+              <div class="b-price"><span>{{item.price}}</span>元</div>
             </div>
             <div class="bottom">
               <el-button size="medium" type="primary" class="buy">购买</el-button>
@@ -180,6 +130,83 @@ export default {
   name: 'Home',
   data () {
     return {
+      priceInfo: [
+        {
+          price: '570.00', // 价格
+          coupons: 60000, // 次数
+          gift: 30000, // 购买次数
+          is_recommend: false, // 是否推荐
+          id: 1003, // 套餐ID
+          desc: [
+            {
+              text: '1234', // 描述
+              tips: '' // 描述补充
+            },
+            {
+              text: '1234',
+              tips: ''
+            },
+            {
+              text: '1234',
+              tips: '5678'
+            },
+            {
+              text: '1234',
+              tips: ''
+            }
+          ]
+        },
+        {
+          price: '570.00', // 价格
+          coupons: 60000, // 次数
+          gift: 30000, // 购买次数
+          is_recommend: true, // 是否推荐
+          id: 1003, // 套餐ID
+          desc: [
+            {
+              text: '1234', // 描述
+              tips: '' // 描述补充
+            },
+            {
+              text: '1234',
+              tips: ''
+            },
+            {
+              text: '1234',
+              tips: '5678'
+            },
+            {
+              text: '1234',
+              tips: ''
+            }
+          ]
+        },
+        {
+          price: '570.00', // 价格
+          coupons: 60000, // 次数
+          gift: 30000, // 购买次数
+          is_recommend: false, // 是否推荐
+          id: 1003, // 套餐ID
+          desc: [
+            {
+              text: '1234', // 描述
+              tips: '' // 描述补充
+            },
+            {
+              text: '1234',
+              tips: ''
+            },
+            {
+              text: '1234',
+              tips: '5678'
+            },
+            {
+              text: '1234',
+              tips: ''
+            }
+          ]
+        }
+      ]
     }
   }
 }

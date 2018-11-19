@@ -23,15 +23,14 @@
         style="width: 100%;border: 1px solid #ebeef5;border-bottom: 0;margin-top: 20px;font-size: 12px;}">
         <el-table-column
          align="center"
-         prop="name"
           label="名称"
           width="160">
           <template slot-scope="scope">
             <div style="display:flex;">
-              <img :src="scope.row.name.img" style="width: 45px;height: 45px;border-radius: 5px;: 1px solid #eee;margin-right:5px;">
+              <img :src="scope.row.icon" style="width: 45px;height: 45px;border-radius: 5px;: 1px solid #eee;margin-right:5px;">
               <div>
-                <p style="font-size: 14px;">{{scope.row.name.text}}</p>
-                <p style="color: #999;text-align: left;">{{scope.row.type}}</p>
+                <p style="font-size: 14px;">{{scope.row.name}}</p>
+                <p style="color: #999;text-align: left;">{{scope.row.form}}</p>
               </div>
             </div>
           </template>
@@ -47,11 +46,10 @@
         </el-table-column>
         <el-table-column
           align="center"
-          prop="link_qrcode"
           label="下载链接/二维码">
           <template slot-scope="scope">
             <div style="font-size: 12px;">
-              {{scope.row.link_qrcode.link}}
+              {{scope.row.url}}
               <el-tooltip placement="bottom" effect="light">
                 <div slot="content">
                   <div style="padding: 5px; border-bottom: 1px solid #ddd;margin-bottom: 5px;font-size: 14px;color: #999">
@@ -87,6 +85,7 @@
   </div>
 </template>
 <script>
+import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'applist',
   data () {
@@ -105,22 +104,47 @@ export default {
           label: 'Android'
         }
       ],
-      tableData: [{
-        type: 'Android',
-        name: {
-          text: 'Brevent',
-          img: 'static/images/default-icon.png'
-        },
-        size: '0.95M',
-        link_qrcode: {
-          link: 'https://dibaqu.com/NFvy',
-          qrcode: 'dddd'
-        },
-        update_time: '2018-11-07 22:20'
-      }]
+      tableData: [
+        // {
+        //   type: 'Android',
+        //   name: {
+        //     text: 'Brevent',
+        //     img: 'static/images/default-icon.png'
+        //   },
+        //   size: '0.95M',
+        //   link_qrcode: {
+        //     link: 'https://dibaqu.com/NFvy',
+        //     qrcode: 'dddd'
+        //   },
+        //   update_time: '2018-11-07 22:20'
+        // }
+        {
+          'id': 2,
+          'name': '小新应2',
+          'form': 'Android',
+          'size': '11.6 MB',
+          'type': '内测版',
+          'version': '1.0.0.1',
+          'bundle_id': 'com.kingControl.merchantId1579.xiaoxinyingji',
+          'team': '*',
+          'description': 'Android 9.0 或者高版本',
+          'icon': 'http://package-hermann-test.oss-cn-beijing.aliyuncs.com/20181105112107856364.png',
+          'url': 'http://127.0.0.1:8000/asdf',
+          'sub_app': {
+            'id': 3,
+            'name': '小新应急',
+            'form': 'iOS',
+            'icon': 'http://package-hermann-test.oss-cn-beijing.aliyuncs.com/20181105112107856322.png'
+          }
+        }
+      ]
     }
   },
+  computed: {
+    ...mapGetters(['apps'])
+  },
   methods: {
+    ...mapActions(['getApps']),
     searchApp () {
       console.log(this.appName)
     },
@@ -132,6 +156,13 @@ export default {
         }
       })
     }
+  },
+  mounted () {
+    this.getApps({
+      page: 1,
+      form: 'iOS',
+      word: ''
+    })
   }
 }
 </script>
