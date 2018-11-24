@@ -21,7 +21,7 @@ import Success from '@/components/publish/Success'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -40,6 +40,9 @@ export default new Router({
           path: 'user',
           name: 'user',
           component: User,
+          meta: {
+            requireAuth: true
+          },
           redirect: {
             name: 'myorder'
           },
@@ -68,7 +71,10 @@ export default new Router({
         {
           path: 'buy',
           name: 'buy',
-          component: Buy
+          component: Buy,
+          meta: {
+            requireAuth: true
+          }
         }
       ]
     }, {
@@ -89,6 +95,9 @@ export default new Router({
       path: '/publish',
       name: 'publish',
       component: Publish,
+      meta: {
+        requireAuth: true
+      },
       redirect: {
         name: 'publishinfo'
       },
@@ -142,3 +151,5 @@ export default new Router({
     }
   ]
 })
+
+export default router

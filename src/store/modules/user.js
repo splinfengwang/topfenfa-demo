@@ -14,18 +14,24 @@ const actions = {
   login ({commit, state}, payload) {
     return api.login(payload.email, payload.password)
       .then(res => {
-        console.log(res)
-        this.commit('SET_USERINFO', {
+        console.log(res, '手动登录')
+        commit('SET_USERINFO', {
           name: 'wanglinfeng'
         })
-        this.commit('SET_ISLOGIN', true)
+        commit('SET_ISLOGIN', true)
+      })
+  },
+  relogin ({commit, state}, token) {
+    return api.relogin(token)
+      .then(res => {
+        console.log(res, '自动登录')
       })
   },
   logout ({commit, state}, payload) {
     return api.logout()
       .then(() => {
-        this.commit('SET_USERINFO', null)
-        this.commit('SET_ISLOGIN', false)
+        commit('SET_USERINFO', null)
+        commit('SET_ISLOGIN', false)
       })
   }
 }

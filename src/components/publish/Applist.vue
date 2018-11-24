@@ -64,10 +64,10 @@
         </el-table-column>
         <el-table-column
           align="center"
-          label="更新时间"
+          label="版本"
           width="90">
           <template slot-scope="scope">
-            <div style="font-size: 12px;">{{scope.row.update_time}}</div>
+            <div style="font-size: 12px;">{{scope.row.version}}</div>
           </template>
         </el-table-column>
         <el-table-column

@@ -7,7 +7,7 @@ import $http from '@/api/request'
  */
 const login = (email, password) => {
   return $http({
-    url: 'auth/login',
+    url: 'api/auth/login',
     method: 'post',
     data: {
       email: email,
@@ -15,9 +15,16 @@ const login = (email, password) => {
     },
     accept: 'application/json'
   }).then(res => {
+    localStorage.token_type = res.data.data.token_type
+    localStorage.access_token = res.data.data.access_token
+    localStorage.expires_in = Date.parse(new Date()) + res.data.data.expires_in * 1000
     $http.defaults.headers.common['Authorization'] = `${res.data.data.token_type} ${res.data.data.access_token}`
     return res.data
   })
+}
+
+const relogin = (token) => {
+  return null
 }
 
 /**
@@ -46,6 +53,7 @@ const getApps = (page, form, word) => {
 
 export default {
   login,
+  relogin,
   logout,
   getApps
 }

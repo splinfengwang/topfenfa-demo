@@ -10,7 +10,12 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/api': {
+        target: 'http://fortest.topfenfa.com/',
+        changeOrigin: true
+      }
+    },
 
     // Various Dev Server settings
     host: '127.0.0.1', // can be overwritten by process.env.HOST
